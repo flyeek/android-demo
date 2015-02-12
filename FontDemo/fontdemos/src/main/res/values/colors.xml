@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_lightgreen">#8BC34A</color>
+    <color name="color_cyan">#00BCD4</color>
+
+    <color name="bg_metrics_sample_paint">@color/color_lightgreen</color>
+    <color name="bg_metrics_sample_write">@color/color_cyan</color>
+    <color name="bg_typeface_sample_buildin">@color/color_lightgreen</color>
+    <color name="bg_typeface_sample_custom">@color/color_cyan</color>
+</resources>

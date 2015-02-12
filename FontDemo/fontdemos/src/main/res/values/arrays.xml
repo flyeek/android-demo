@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="demoitems_array">
+        <item>Demos Overview</item>
+        <item>Font Metrics</item>
+        <item>Font Typeface</item>
+        <item>Spannable String</item>
+    </string-array>
+</resources>

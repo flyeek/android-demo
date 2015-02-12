@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginBottom="@dimen/activity_vertical_margin"
+              android:layout_marginLeft="@dimen/activity_horizontal_margin"
+              android:layout_marginRight="@dimen/activity_horizontal_margin"
+              android:layout_marginTop="@dimen/activity_vertical_margin"
+              android:orientation="vertical"
+              tools:context="com.flyeek.demo.font.typeface.TypefaceFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/typeface_sample_buildin"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sampletext_viewheight"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/bg_typeface_sample_buildin"
+            android:textSize="@dimen/typeface_sampletext_fontsize"
+            android:fontFamily="sans-serif"
+            android:textStyle="italic"
+            android:text="@string/typeface_sample_text"/>
+
+        <com.flyeek.demo.font.typeface.CustomTypefaceTextView
+            android:id="@+id/typeface_sample_custom"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sampletext_viewheight"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/bg_typeface_sample_custom"
+            android:textSize="@dimen/typeface_sampletext_fontsize"
+            android:text="@string/typeface_sample_text"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/typeface_info_buildin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/typeface_info_custom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/typeface_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/typeface_show"/>
+</LinearLayout>
