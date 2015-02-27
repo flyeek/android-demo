@@ -1,48 +1,57 @@
 package com.flyeek.demo.font;
 
+
+import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class Main extends ActionBarActivity {
-
+/**
+ * A simple {@link Fragment} subclass for demon of FontMetrics.
+ */
+public class FontMetricsFragment extends Fragment {
     private final String SAMPLE_TEXT = "Font";
     private float baseLineY;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public FontMetricsFragment() {
+        // Required empty public constructor
+    }
 
-        Button showButton = (Button) this.findViewById(R.id.main_show);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_fontmetrics, container, false);
+
+        Button showButton = (Button) rootView.findViewById(R.id.metrics_show);
         showButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showFontInfo();
             }
         });
+
+        return rootView;
     }
 
     private void showFontInfo() {
-        ImageView sampleTextImgView = (ImageView) this.findViewById(R.id.main_sample_paint);
+        ImageView sampleTextImgView = (ImageView) getActivity().findViewById(R.id.metrics_sample_paint);
         Paint textPaint = drawText(sampleTextImgView, SAMPLE_TEXT);
-        TextView showPaintFontTxtView = (TextView) this.findViewById(R.id.main_info_paint);
+        TextView showPaintFontTxtView = (TextView) getActivity().findViewById(R.id.metrics_info_paint);
         showPaintFontInfo(showPaintFontTxtView, textPaint, SAMPLE_TEXT);
 
-        TextView sampleTxtView = (TextView) this.findViewById(R.id.main_sample_write);
+        TextView sampleTxtView = (TextView) getActivity().findViewById(R.id.metrics_sample_write);
         writeText(sampleTxtView, SAMPLE_TEXT);
-        TextView showWriteFontTxtView = (TextView) this.findViewById(R.id.main_info_write);
+        TextView showWriteFontTxtView = (TextView) getActivity().findViewById(R.id.metrics_info_write);
         showWriteFontInfo(showWriteFontTxtView, sampleTxtView);
     }
 
@@ -124,10 +133,10 @@ public class Main extends ActionBarActivity {
 
         // TODO refine string concatenation
         String fontInfoString = "";
-        fontInfoString += "font size: " + this.getResources().getDimensionPixelSize(R.dimen
-                .main_sampletext_fontsize) / this.getResources().getDisplayMetrics().density +
+        fontInfoString += "font size: " + getActivity().getResources().getDimensionPixelSize(R.dimen
+                .main_sampletext_fontsize) / getActivity().getResources().getDisplayMetrics().density +
                 "sp\n";
-        fontInfoString += "font scaled density: " + this.getResources().getDisplayMetrics()
+        fontInfoString += "font scaled density: " + getActivity().getResources().getDisplayMetrics()
                 .scaledDensity + "\n";
         fontInfoString += "baseline pos: " + baseLineY + "\n";
         fontInfoString += "font ascent: " + ascent + "\n";
@@ -159,14 +168,14 @@ public class Main extends ActionBarActivity {
         float descent = fontMetrics.descent;
         float bottom = fontMetrics.bottom;
         float leading = sourceTxtView.getLineHeight() * (sourceTxtView.getLineSpacingMultiplier()
-                -1) + sourceTxtView.getLineSpacingExtra();
+                - 1) + sourceTxtView.getLineSpacingExtra();
 
         // TODO refine string concatenation
         String fontInfoString = "";
-        fontInfoString += "font size: " + this.getResources().getDimensionPixelSize(R.dimen
-                .main_sampletext_fontsize) / this.getResources().getDisplayMetrics().density +
+        fontInfoString += "font size: " + getActivity().getResources().getDimensionPixelSize(R.dimen
+                .main_sampletext_fontsize) / getActivity().getResources().getDisplayMetrics().density +
                 "sp\n";
-        fontInfoString += "font scaled density: " + this.getResources().getDisplayMetrics()
+        fontInfoString += "font scaled density: " + getActivity().getResources().getDisplayMetrics()
                 .scaledDensity + "\n";
         fontInfoString += "baseline pos: " + baseLine + "\n";
         fontInfoString += "font ascent: " + ascent + "\n";
@@ -177,29 +186,8 @@ public class Main extends ActionBarActivity {
         fontInfoString += "textBox width: " + textBound.width() + "\n";
         fontInfoString += "textBox height: " + textBound.height() + "\n";
         fontInfoString += "line height: " + sourceTxtView.getLineHeight() + "\n";
-        fontInfoString += "line width" + sourcePaint.measureText(sourceText);
+        fontInfoString += "line width: " + sourcePaint.measureText(sourceText);
         targetTxtView.setText(fontInfoString);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_about) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

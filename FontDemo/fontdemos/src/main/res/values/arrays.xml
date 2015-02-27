@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="demoitems_array">
+        <item>Font Demos Overview</item>
+        <item>Font Metrics</item>
+        <item>Font Replace</item>
+    </string-array>
+</resources>
