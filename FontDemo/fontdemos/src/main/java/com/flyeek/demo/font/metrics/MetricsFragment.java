@@ -1,4 +1,4 @@
-package com.flyeek.demo.font;
+package com.flyeek.demo.font.metrics;
 
 
 import android.app.Fragment;
@@ -15,22 +15,24 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.flyeek.demo.font.R;
+
 
 /**
  * A simple {@link Fragment} subclass for demon of FontMetrics.
  */
-public class FontMetricsFragment extends Fragment {
-    private final String SAMPLE_TEXT = "Font";
+public class MetricsFragment extends Fragment {
+    private final String SAMPLE_TEXT = "Metrics";
     private float baseLineY;
 
-    public FontMetricsFragment() {
+    public MetricsFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_fontmetrics, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_metrics, container, false);
 
         Button showButton = (Button) rootView.findViewById(R.id.metrics_show);
         showButton.setOnClickListener(new View.OnClickListener() {
@@ -44,14 +46,14 @@ public class FontMetricsFragment extends Fragment {
     }
 
     private void showFontInfo() {
-        ImageView sampleTextImgView = (ImageView) getActivity().findViewById(R.id.metrics_sample_paint);
+        ImageView sampleTextImgView = (ImageView) getActivity().findViewById(R.id.metrics_sample_buildin);
         Paint textPaint = drawText(sampleTextImgView, SAMPLE_TEXT);
-        TextView showPaintFontTxtView = (TextView) getActivity().findViewById(R.id.metrics_info_paint);
+        TextView showPaintFontTxtView = (TextView) getActivity().findViewById(R.id.metrics_info_buildin);
         showPaintFontInfo(showPaintFontTxtView, textPaint, SAMPLE_TEXT);
 
-        TextView sampleTxtView = (TextView) getActivity().findViewById(R.id.metrics_sample_write);
+        TextView sampleTxtView = (TextView) getActivity().findViewById(R.id.metrics_sample_custom);
         writeText(sampleTxtView, SAMPLE_TEXT);
-        TextView showWriteFontTxtView = (TextView) getActivity().findViewById(R.id.metrics_info_write);
+        TextView showWriteFontTxtView = (TextView) getActivity().findViewById(R.id.metrics_info_custom);
         showWriteFontInfo(showWriteFontTxtView, sampleTxtView);
     }
 
@@ -63,7 +65,7 @@ public class FontMetricsFragment extends Fragment {
 
         // Draw sample text
         Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        textPaint.setTextSize(this.getResources().getDimensionPixelSize(R.dimen.main_sampletext_fontsize));
+        textPaint.setTextSize(this.getResources().getDimensionPixelSize(R.dimen.metrics_sampletext_fontsize));
         Paint.FontMetrics textFontMetrics = textPaint.getFontMetrics();
         float textBaseX = (imgWidth - textPaint.measureText(sourceText)) / 2;
         baseLineY = (imgHeight + Math.abs(textFontMetrics.ascent) - textFontMetrics.descent) / 2;
@@ -134,7 +136,7 @@ public class FontMetricsFragment extends Fragment {
         // TODO refine string concatenation
         String fontInfoString = "";
         fontInfoString += "font size: " + getActivity().getResources().getDimensionPixelSize(R.dimen
-                .main_sampletext_fontsize) / getActivity().getResources().getDisplayMetrics().density +
+                .metrics_sampletext_fontsize) / getActivity().getResources().getDisplayMetrics().density +
                 "sp\n";
         fontInfoString += "font scaled density: " + getActivity().getResources().getDisplayMetrics()
                 .scaledDensity + "\n";
@@ -173,7 +175,7 @@ public class FontMetricsFragment extends Fragment {
         // TODO refine string concatenation
         String fontInfoString = "";
         fontInfoString += "font size: " + getActivity().getResources().getDimensionPixelSize(R.dimen
-                .main_sampletext_fontsize) / getActivity().getResources().getDisplayMetrics().density +
+                .metrics_sampletext_fontsize) / getActivity().getResources().getDisplayMetrics().density +
                 "sp\n";
         fontInfoString += "font scaled density: " + getActivity().getResources().getDisplayMetrics()
                 .scaledDensity + "\n";

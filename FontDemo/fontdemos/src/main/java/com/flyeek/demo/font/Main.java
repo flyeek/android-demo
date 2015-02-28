@@ -14,11 +14,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.flyeek.demo.font.metrics.MetricsFragment;
+import com.flyeek.demo.font.typeface.TypefaceFragment;
+
 
 public class Main extends Activity {
     private static final int DEMO_INTRODUCTION = 0;
     private static final int DEMO_FONT_METRICS = 1;
-    private static final int DEMO_FONT_REPLACE = 2;
+    private static final int DEMO_FONT_TYPEFACE = 2;
+    private static final int DEMO_SPANNABLE_STRING = 3;
 
     private String[] mDemoItemTitles;
     private CharSequence mCurrentDemoTitle;
@@ -87,10 +91,13 @@ public class Main extends Activity {
                 // TODO: Code a fragment to introduct this demo app
                 break;
             case DEMO_FONT_METRICS:
-                demoFragment = new FontMetricsFragment();
+                demoFragment = new MetricsFragment();
                 break;
-            case DEMO_FONT_REPLACE:
-                // TODO: Code a fragment to demonstrate how to change font in app
+            case DEMO_FONT_TYPEFACE:
+                demoFragment = TypefaceFragment.newInstance();
+                break;
+            case DEMO_SPANNABLE_STRING:
+                // TODO: Code a fragment to demo how to use spannableString to customize font&String
                 break;
             default:
                 break;

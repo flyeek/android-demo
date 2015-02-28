@@ -2,8 +2,9 @@
 <resources>
     <string-array
         name="demoitems_array">
-        <item>Font Demos Overview</item>
+        <item>Demos Overview</item>
         <item>Font Metrics</item>
-        <item>Font Replace</item>
+        <item>Font Typeface</item>
+        <item>Spannable String</item>
     </string-array>
 </resources>
