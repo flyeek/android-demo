@@ -8,7 +8,7 @@
               android:layout_marginRight="@dimen/activity_horizontal_margin"
               android:layout_marginTop="@dimen/activity_vertical_margin"
               android:orientation="vertical"
-              tools:context=".Main">
+              tools:context="com.flyeek.demo.font.typeface.TypefaceFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

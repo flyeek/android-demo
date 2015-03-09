@@ -10,4 +10,7 @@
     <string name="typeface_sample_text">Font Typeface</string>
     <string name="typeface_show">show typeface infos</string>
 
+    <string name="span_sample_text">Hello spannable string</string>
+    <string name="span_show">show more</string>
+
 </resources>

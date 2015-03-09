@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.flyeek.demo.font.metrics.MetricsFragment;
+import com.flyeek.demo.font.spannable.SpanFragment;
 import com.flyeek.demo.font.typeface.TypefaceFragment;
 
 
@@ -97,7 +98,7 @@ public class Main extends Activity {
                 demoFragment = TypefaceFragment.newInstance();
                 break;
             case DEMO_SPANNABLE_STRING:
-                // TODO: Code a fragment to demo how to use spannableString to customize font&String
+                demoFragment = SpanFragment.newInstance();
                 break;
             default:
                 break;
