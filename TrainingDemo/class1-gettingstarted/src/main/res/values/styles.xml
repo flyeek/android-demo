@@ -1,0 +1,25 @@
+<resources>
+
+    <style name="CustomActionBarTheme" parent="android:Theme.DeviceDefault.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+        <item name="android:actionMenuTextColor">@color/actionbar_text</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="ActionBar" parent="android:Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/palette_primary</item>
+        <item name="android:titleTextStyle">@style/ActionBarTitleText</item>
+    </style>
+
+    <style name="ActionBarTitleText" parent="android:TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/actionbar_text</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="android:Theme.DeviceDefault.Dialog">
+    </style>
+
+    <style name="InfoLabelTextAppearance">
+        <item name="android:textColor">@color/info_category_text</item>
+        <item name="android:textSize">@dimen/info_category_text</item>
+    </style>
+</resources>
