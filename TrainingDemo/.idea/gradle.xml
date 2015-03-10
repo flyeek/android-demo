@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/class1-gettingstarted" />
             <option value="$PROJECT_DIR$/official-activitylifecycle" />
+            <option value="$PROJECT_DIR$/official-fragmentBasics" />
           </set>
         </option>
       </GradleProjectSettings>

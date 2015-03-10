@@ -1,2 +1,4 @@
 include ':class1-gettingstarted', ':official-activitylifecycle'
 
+
+include ':official-fragmentBasics'

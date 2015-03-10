@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/D:/Lty/GitRepos/android-demo/TrainingDemo/official-activitylifecycle/src/main/res/values/colors.xml -->
+    <!-- From: file:/E:/GitHubRepo/android-demo/TrainingDemo/official-activitylifecycle/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="black">#000000</color>
     <color name="dark_blue">#0099CC</color>
@@ -12,12 +12,12 @@
     <color name="light_red">#FFAFAF</color>
     <color name="light_yellow">#FFECC0</color>
     <color name="white">#FFFFFF</color>
-    <!-- From: file:/D:/Lty/GitRepos/android-demo/TrainingDemo/official-activitylifecycle/src/main/res/values/dimensions.xml -->
+    <!-- From: file:/E:/GitHubRepo/android-demo/TrainingDemo/official-activitylifecycle/src/main/res/values/dimensions.xml -->
     <eat-comment/>
     <dimen name="font_large">44dp</dimen>
     <dimen name="font_medium">24dp</dimen>
     <dimen name="font_small">10dp</dimen>
-    <!-- From: file:/D:/Lty/GitRepos/android-demo/TrainingDemo/official-activitylifecycle/src/main/res/values/strings.xml -->
+    <!-- From: file:/E:/GitHubRepo/android-demo/TrainingDemo/official-activitylifecycle/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="activity_a">Activity A</string>
     <string name="activity_a_label">Activity A</string>

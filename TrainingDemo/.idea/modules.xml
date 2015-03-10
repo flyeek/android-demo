@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/TrainingDemo.iml" filepath="$PROJECT_DIR$/TrainingDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/class1-gettingstarted/class1-gettingstarted.iml" filepath="$PROJECT_DIR$/class1-gettingstarted/class1-gettingstarted.iml" />
       <module fileurl="file://$PROJECT_DIR$/official-activitylifecycle/official-activitylifecycle.iml" filepath="$PROJECT_DIR$/official-activitylifecycle/official-activitylifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/official-fragmentBasics/official-fragmentBasics.iml" filepath="$PROJECT_DIR$/official-fragmentBasics/official-fragmentBasics.iml" />
     </modules>
   </component>
 </project>
