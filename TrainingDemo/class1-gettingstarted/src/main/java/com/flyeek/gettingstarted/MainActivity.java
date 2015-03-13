@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+
+import com.flyeek.gettingstarted.activitylifecircle.LifecircleDemoActivity;
 
 public class MainActivity extends Activity {
     public static final String EXTRA_MESSAGE = "com.flyeek.myfirstapp.message";
@@ -15,6 +18,15 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button startLifecircleBtn = (Button) findViewById(R.id.main_navto_lifecircle);
+        startLifecircleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LifecircleDemoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -48,7 +60,7 @@ public class MainActivity extends Activity {
 
     /*Called when user click the send Button*/
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, FullScreenActivity.class);
+        Intent intent = new Intent(this, LifecircleDemoActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);

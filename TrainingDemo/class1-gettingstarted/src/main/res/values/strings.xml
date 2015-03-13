@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Getting Started</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_fullscreen">FullScreenActivity</string>
-    <string name="title_activity_dialog">DialogAvtivity</string>
-    <string name="action_hide_actionbar">Hide</string>
+    <string name="app_name">Class1 Getting Started</string>
     <string name="action_settings">Settings</string>
-    <string name="edit_message">Enter a message</string>
-    <string name="button_send">Send</string>
 
-    <string name="label_activity_status">Activity Status</string>
+    <string name="main_activity_title">MainActivity</string>
+    <string name="main_action_hide_actionbar">Hide</string>
+    <string name="main_edit_message">Enter a message</string>
+    <string name="main_btn_send">Send</string>
+    <string name="main_btn_lifecircle">Activity Life Circle</string>
+
+    <string name="fullscreen_activity_title">FullScreen Activity</string>
+    <string name="dialog_activity_title">Dialog Activity</string>
+
+    <string name="lifecycle_method_list">Lifecycle Method List</string>
+    <string name="activity_status">Activity Status</string>
+    <string name="dialog_text">Simple Dialog</string>
+
+    <string name="on_create">onCreate</string>
+    <string name="on_destroy">onDestroy</string>
+    <string name="on_start">onStart</string>
+    <string name="on_restart">onRestart</string>
+    <string name="on_stop">onStop</string>
+    <string name="on_pause">onPause</string>
+    <string name="on_resume">onResume</string>
+
+    <string name="activity_a_label">Activity A</string>
+    <string name="activity_b_label">Activity B</string>
+
+    <string name="btn_start_a_label">Start A</string>
+    <string name="btn_start_b_label">Start B</string>
+    <string name="btn_start_dialog_label">Dialog</string>
+
+    <string name="btn_finish_a_label">Finish This</string>
+    <string name="btn_finish_b_label">Finish This</string>
+    <string name="btn_finish_dialog_label">Close</string>
+
+    <string name="on_activity_created">onActivityCreated</string>
+    <string name="on_attach">onAttach</string>
+    <string name="on_create_view">onCreateView</string>
+    <string name="on_destroy_view">onDestroyView</string>
+    <string name="on_detach">onDetach</string>
+    <string name="on_view_created">onViewCreated</string>
+    <string name="activity_a">Activity A</string>
+
+    <string name="start_a">Start A</string>
+    <string name="start_b">Start B</string>
+
+    <string name="close">Close</string>
+    <string name="dialog">Dialog</string>
+    <string name="lifecircle_demo_activity_title">Lifecircle Demo</string>
 
 </resources>

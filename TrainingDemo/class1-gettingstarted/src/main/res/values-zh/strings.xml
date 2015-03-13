@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">启航</string>
-    <string name="action_hide_actionbar">隐藏</string>
-    <string name="action_settings">设置</string>
-    <string name="button_send">发送</string>
-    <string name="edit_message">输入消息</string>
-    <string name="title_activity_fullscreen">全屏Activity</string>
-    <string name="title_activity_main">首屏Activity</string>
-    <string name="title_activity_dialog">对话框Activity</string>
+    <string name="main_edit_message">输入消息</string>
 </resources>

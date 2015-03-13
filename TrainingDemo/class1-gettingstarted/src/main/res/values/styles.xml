@@ -18,8 +18,4 @@
     <style name="CustomDialogTheme" parent="android:Theme.DeviceDefault.Dialog">
     </style>
 
-    <style name="InfoLabelTextAppearance">
-        <item name="android:textColor">@color/info_category_text</item>
-        <item name="android:textSize">@dimen/info_category_text</item>
-    </style>
 </resources>
