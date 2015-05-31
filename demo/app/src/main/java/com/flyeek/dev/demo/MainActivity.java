@@ -4,12 +4,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.umeng.update.UmengUpdateAgent;
+
 
 public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        UmengUpdateAgent.update(this);
+
         setContentView(R.layout.activity_main);
     }
 
