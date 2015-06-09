@@ -3,7 +3,10 @@ package com.flyeek.dev.demo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import com.flyeek.dev.demo.share.Facebook;
 import com.umeng.update.UmengUpdateAgent;
 
 
@@ -16,6 +19,14 @@ public class MainActivity extends BaseActivity {
         UmengUpdateAgent.update(this);
 
         setContentView(R.layout.activity_main);
+
+        TextView txtView = (TextView) findViewById(R.id.txt_hello);
+        txtView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Facebook.shareToFaceBook(MainActivity.this);
+            }
+        });
     }
 
     @Override
