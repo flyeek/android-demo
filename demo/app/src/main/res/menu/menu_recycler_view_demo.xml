@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.flyeek.dev.demo.ui.widget.recyclerview.RecyclerViewActivity">
+
+    <item android:id="@+id/action_add"
+          android:title="Add"
+          android:icon="@drawable/ic_add_box_black"
+          android:orderInCategory="100"
+          app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_delete"
+          android:title="Add"
+          android:icon="@drawable/ic_delete_black"
+          android:orderInCategory="100"
+          app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_listview"
+          android:title="ListView"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/action_horizontal_listview"
+          android:title="Horizontal ListView"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/action_gridview"
+          android:title="GridView"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/action_horizontal_gridview"
+          android:title="Horizontal GridView"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/action_stagger_gridview"
+          android:title="Stagger GridView"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/action_horizontal_stagger_gridview"
+          android:title="Horizontal Stagger GridView"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+
+</menu>

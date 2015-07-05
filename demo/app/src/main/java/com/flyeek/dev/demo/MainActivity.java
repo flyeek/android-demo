@@ -1,12 +1,13 @@
 package com.flyeek.dev.demo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
-import com.flyeek.dev.demo.share.Facebook;
+import com.flyeek.dev.demo.ui.widget.recyclerview.RecyclerViewActivity;
 import com.umeng.update.UmengUpdateAgent;
 
 
@@ -20,13 +21,18 @@ public class MainActivity extends BaseActivity {
 
         setContentView(R.layout.activity_main);
 
-        TextView txtView = (TextView) findViewById(R.id.txt_hello);
-        txtView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Facebook.shareToFaceBook(MainActivity.this);
-            }
-        });
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        int width = metrics.widthPixels;               // 屏幕宽度（像素
+        int height = metrics.heightPixels;            // 屏幕高度（像素）
+        float density = metrics.densityDpi;
+
+        Log.d("flyeek", "density = " + density + ", width = " + width + ", height = " + height);
+
+        Intent intent = new Intent(this, RecyclerViewActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -49,5 +55,19 @@ public class MainActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        Log.d("flyeek", "onSaveInstanceState");
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        Log.d("flyeek", "onRestoreInstanceState");
     }
 }

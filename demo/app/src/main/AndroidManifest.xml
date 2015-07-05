@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.flyeek.dev.demo"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.flyeek.dev.demo" >
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- requested by .ui.FloatWindow -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <receiver
             android:name=".ui.notification.service.NotificationGenerator"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
-                <action android:name="com.flyeek.notify"/>
+                <action android:name="com.flyeek.notify" />
             </intent-filter>
         </receiver>
-
 
         <!-- Facebook SDK Integration -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+            android:value="@string/facebook_app_id" />
 
         <!-- Facebook Activity needed by Login or Share -->
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!-- Facebook ContentProvider for sharing links, images or video -->
         <provider
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider1070778486285647"
-            android:exported="true"/>
-
+            android:exported="true" />
 
         <!-- UMeng update -->
         <service
             android:name="com.umeng.update.net.DownloadingService"
-            android:process=":DownloadingService">
+            android:process=":DownloadingService" >
         </service>
+
         <activity
             android:name="com.umeng.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
 
         <!-- UMeng analytics -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5569cb3467e58ecf880023e0"/>
+            android:value="5569cb3467e58ecf880023e0" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}"/>
+            android:value="${UMENG_CHANNEL_VALUE}" />
 
+        <activity android:name=".ui.window.FloatWIndow" >
+        </activity>
         <activity
-            android:name=".ui.window.FloatWIndow">
+            android:name=".ui.widget.recyclerview.RecyclerViewActivity"
+            android:label="@string/title_activity_recycler_view_demo" >
         </activity>
     </application>
 
