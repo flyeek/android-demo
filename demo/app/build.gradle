@@ -71,4 +71,7 @@ dependencies {
     compile 'com.android.support:design:22.2.0'
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.facebook.android:facebook-android-sdk:4.1.0'
+
+    // ffmpeg
+    compile 'com.github.hiteshsondhi88.libffmpeg:FFmpegAndroid:0.2.5'
 }

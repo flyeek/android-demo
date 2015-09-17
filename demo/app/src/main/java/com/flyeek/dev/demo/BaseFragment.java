@@ -2,7 +2,7 @@ package com.flyeek.dev.demo;
 
 import android.app.Fragment;
 
-import com.flyeek.dev.demo.util.AnalysisUtil;
+import com.flyeek.dev.demo.util.AnalyticsUtil;
 
 /**
  * Created by flyeek on 5/30/15.
@@ -14,7 +14,7 @@ public class BaseFragment extends Fragment {
         super.onResume();
 
         // UMeng page analytics.
-        AnalysisUtil.onPageStart(getClass().getSimpleName());
+        AnalyticsUtil.onPageStart(getClass().getSimpleName());
     }
 
     @Override
@@ -22,6 +22,6 @@ public class BaseFragment extends Fragment {
         super.onPause();
 
         // UMeng page analytics.
-        AnalysisUtil.onPageEnd(getClass().getSimpleName());
+        AnalyticsUtil.onPageEnd(getClass().getSimpleName());
     }
 }

@@ -11,7 +11,7 @@ import java.util.Map;
  * <p>
  * Created by flyeek on 5/30/15.
  */
-public class AnalysisUtil {
+public class AnalyticsUtil {
 
     private static Context mContext;
 

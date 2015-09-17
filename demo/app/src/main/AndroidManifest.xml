@@ -53,6 +53,15 @@
             android:authorities="com.facebook.app.FacebookContentProvider1070778486285647"
             android:exported="true" />
 
+        <!-- Google Play install referrer -->
+        <receiver
+            android:name="com.flyeek.dev.demo.googleplay.GAInstallReferrerReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
         <!-- UMeng update -->
         <service
             android:name="com.umeng.update.net.DownloadingService"

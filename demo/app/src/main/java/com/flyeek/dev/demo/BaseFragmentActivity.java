@@ -2,10 +2,12 @@ package com.flyeek.dev.demo;
 
 import android.app.Activity;
 
-import com.flyeek.dev.demo.util.AnalysisUtil;
+import com.flyeek.dev.demo.util.AnalyticsUtil;
 
 /**
- * For analytics.
+ * Base activity, only can be inherited by activity with fragments.
+ * <p>
+ * Session will be automaticly analysed, and Page Hopping must be analysed by fragment.
  * Created by flyeek on 5/30/15.
  */
 public abstract class BaseFragmentActivity extends Activity{
@@ -15,7 +17,7 @@ public abstract class BaseFragmentActivity extends Activity{
         super.onResume();
 
         // UMeng Session analytics.
-        AnalysisUtil.onSessionStart(this);
+        AnalyticsUtil.onSessionStart(this);
     }
 
     @Override
@@ -23,6 +25,6 @@ public abstract class BaseFragmentActivity extends Activity{
         super.onPause();
 
         // UMeng Session analytics.
-        AnalysisUtil.onSessionEnd(this);
+        AnalyticsUtil.onSessionEnd(this);
     }
 }

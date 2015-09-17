@@ -14,6 +14,7 @@ public class NotificationGenerator extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
         String action = intent.getAction();
         if (action.equals("com.flyeek.notify")) {
             NotificationManager notificationManager = (NotificationManager) context
