@@ -31,3 +31,10 @@ public static final int *;
     public static **[] values();
     public static ** valueOf(java.lang.String);
 }
+
+# Start Retrofit
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+# End Retrofit

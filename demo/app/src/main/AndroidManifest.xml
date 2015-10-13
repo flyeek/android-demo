@@ -11,6 +11,13 @@
     <!-- requested by .ui.FloatWindow -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+    <!-- requested by .ui.widget.flashlightview -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- requested by .location.gmslocation -->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -55,8 +62,8 @@
 
         <!-- Google Play install referrer -->
         <receiver
-            android:name="com.flyeek.dev.demo.googleplay.GAInstallReferrerReceiver"
-            android:exported="true">
+            android:name=".googleplay.GAInstallReferrerReceiver"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
@@ -83,10 +90,19 @@
 
         <activity android:name=".ui.window.FloatWIndow" >
         </activity>
+
         <activity
             android:name=".ui.widget.recyclerview.RecyclerViewActivity"
             android:label="@string/title_activity_recycler_view_demo" >
         </activity>
+
+        <activity android:name=".ui.widget.flashlightview.FlashlightDemoActivity" >
+        </activity>
+
+        <service
+            android:name=".location.gmslocation.FetchAddressIntentService"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

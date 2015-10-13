@@ -1,4 +1,4 @@
-package com.flyeek.dev.demo;
+package com.flyeek.dev.demo.component.activity;
 
 import android.app.Activity;
 

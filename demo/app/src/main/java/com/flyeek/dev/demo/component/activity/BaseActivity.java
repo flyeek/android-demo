@@ -1,4 +1,4 @@
-package com.flyeek.dev.demo;
+package com.flyeek.dev.demo.component.activity;
 
 import android.app.Activity;
 
@@ -18,8 +18,8 @@ public abstract class BaseActivity extends Activity{
         super.onResume();
 
         // Disable automatic Page Hopping analytics when analyse Session.
-        AnalyticsUtil.onPageStart(getClass().getSimpleName());
         AnalyticsUtil.onSessionStart(this);
+        AnalyticsUtil.onPageStart(getClass().getSimpleName());
     }
 
     @Override
