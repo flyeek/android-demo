@@ -1,7 +1,6 @@
 package com.flyeek.dev.demo;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -10,8 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.flyeek.dev.demo.component.activity.BaseActivity;
-import com.flyeek.dev.demo.ui.widget.flashlightview.FlashlightDemoActivity;
 import com.flyeek.dev.demo.ui.widget.webview.ChromeCustomTab;
+import com.flyeek.dev.demo.util.SecureUtil;
 import com.umeng.update.UmengUpdateAgent;
 
 
@@ -32,11 +31,12 @@ public class MainActivity extends BaseActivity {
         int height = metrics.heightPixels;            // 屏幕高度（像素）
         float density = metrics.densityDpi;
 
-        Log.d("flyeek", "density = " + density + ", width = " + width + ", height = " + height);
-        Log.d("flyeek", getDeviceInfo(this));
-
-        Intent intent = new Intent(this, FlashlightDemoActivity.class);
-        startActivity(intent);
+        Log.i("fly", "density = " + density + ", width = " + width + ", height = " + height);
+        final String originStr = "admin";
+        Log.i("fly", "Java origin = " + originStr);
+        Log.i("fly", "java des encrypt = " + SecureUtil.DESEncrypt(originStr, "12345678", false));
+        Log.i("fly", "java des encrypt native = " + SecureUtil.DESEncrypt
+                (originStr, "12345678", true));
     }
 
 

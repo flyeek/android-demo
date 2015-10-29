@@ -1,67 +1,104 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.model.application'
 
 
 def releaseTime() {
     return new Date().format("MM_dd_HH_mm", TimeZone.getTimeZone("UTC"))
 }
 
-android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+model {
+    android {
+        compileSdkVersion = 22
+        buildToolsVersion = "22.0.1"
 
-    defaultConfig {
-        applicationId "com.flyeek.dev.demo"
-        minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 000001
-        versionName "0.0.1"
-    }
+        defaultConfig.with {
+            applicationId = "com.flyeek.dev.demo"
+            minSdkVersion.apiLevel = 16
+            targetSdkVersion.apiLevel = 22
+            versionCode = 000001
+            versionName = "0.0.1"
 
-    signingConfigs {
-        release {
-            storeFile file('/Users/flyeek/Documents/android/flyeek_keystore.jks')
-            storePassword "geeklty@2016fly"
-            keyAlias 'demo'
-            keyPassword 'demo123'
-        }
-    }
-
-    buildTypes {
-        debug {
-            versionNameSuffix ".dev"
-        }
-
-        release {
-            debuggable false
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-
-            // Rename ouput apk to Flyeek_demo_<flavor>_<version>_<mm>_<dd>_<hh>_<minutes>.apk
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('release.apk')) {
-                        def fileName = "Flyeek_demo_${variant.productFlavors[0].name}_v${defaultConfig.versionName}_${releaseTime()}.apk"
-                        output.outputFile = new File(outputFile.parent, fileName)
-                    }
+            buildConfigFields.with {
+                create() {
+                    type = "int"
+                    name = "VALUE"
+                    value = "1"
                 }
             }
         }
+
+        tasks.withType(JavaCompile) {
+            sourceCompatibility = JavaVersion.VERSION_1_7
+            targetCompatibility = JavaVersion.VERSION_1_7
+        }
     }
 
-    productFlavors {
-        google {}
+    android.ndk {
+        moduleName = "secureUtil"
+        ldLibs = ["android", "log", "z", "m"]
+        abiFilters +="armeabi"
+        abiFilters +="armeabi-v7a"
+        abiFilters +="x86"
     }
 
-    productFlavors.all {
-        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    android.buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles += file('proguard-rules.pro')
+        }
     }
 
-    lintOptions {
-        abortOnError false
+    android.productFlavors {
+        create("google") {
+        }
     }
 }
+//android {
+//
+//    signingConfigs {
+//        release {
+//            storeFile file('/Users/flyeek/Documents/android/flyeek_keystore.jks')
+//            storePassword "geeklty@2016fly"
+//            keyAlias 'demo'
+//            keyPassword 'demo123'
+//        }
+//    }
+//
+//    buildTypes {
+//        debug {
+//            versionNameSuffix ".dev"
+//        }
+//
+//        release {
+//            debuggable false
+//            minifyEnabled true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.release
+//
+//            // Rename ouput apk to Flyeek_demo_<flavor>_<version>_<mm>_<dd>_<hh>_<minutes>.apk
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('release.apk')) {
+//                        def fileName = "Flyeek_demo_${variant.productFlavors[0].name}_v${defaultConfig.versionName}_${releaseTime()}.apk"
+//                        output.outputFile = new File(outputFile.parent, fileName)
+//                    }
+//                }
+//            }
+//        }
+//    }
+//
+//    productFlavors {
+//        google {}
+//    }
+//
+//    productFlavors.all {
+//        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+//    }
+//
+//    lintOptions {
+//        abortOnError false
+//    }
+//}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
