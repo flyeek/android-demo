@@ -2,6 +2,8 @@ package com.flyeek.dev.demo.ui.widget.recyclerview;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,11 +20,20 @@ import com.flyeek.dev.demo.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class RecyclerViewActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
+    @Bind(R.id.swipe_refresh_layout)
+    SwipeRefreshLayout mSwipeRefreshView;
+    @Bind(R.id.recyclerview_id)
+    RecyclerView mRecyclerView;
+
     private List<String> mDatas;
     private RecyclerViewBaseAdapter mAdapter;
+
+    private Handler mHandler;
 
     private RecyclerView.ItemDecoration mItemDecoration;
 
@@ -58,13 +69,31 @@ public class RecyclerViewActivity extends AppCompatActivity {
         for (int i = 'A'; i <= 'z'; i++) {
             mDatas.add("" + (char) i);
         }
+
+        mHandler = new Handler();
     }
 
     private void initViews() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_id);
+        ButterKnife.bind(this);
+
+        mSwipeRefreshView.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
+                android.R.color.holo_orange_light, android.R.color.holo_red_light);
     }
 
     private void initActions() {
+        mSwipeRefreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.addData(0);
+                        mSwipeRefreshView.setRefreshing(false);
+                    }
+                }, 2000);
+            }
+        });
+
         mAdapter.setItemClickListener(new RecyclerViewBaseAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {

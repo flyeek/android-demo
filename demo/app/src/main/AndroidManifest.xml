@@ -93,7 +93,8 @@
 
         <activity
             android:name=".ui.widget.recyclerview.RecyclerViewActivity"
-            android:label="@string/title_activity_recycler_view_demo" >
+            android:label="@string/title_activity_recycler_view_demo"
+            android:theme="@style/Theme.AppCompat">
         </activity>
 
         <activity android:name=".ui.widget.flashlightview.FlashlightDemoActivity" >

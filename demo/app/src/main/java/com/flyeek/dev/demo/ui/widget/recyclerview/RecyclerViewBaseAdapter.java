@@ -12,6 +12,9 @@ import com.flyeek.dev.demo.R;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * Adapter for RecyclerView.
  * Created by flyeek on 7/2/15.
@@ -74,13 +77,15 @@ public class RecyclerViewBaseAdapter extends RecyclerView.Adapter<RecyclerViewBa
     public void addData(int position) {
         mDatas.add(position, "Inserted Item");
 
-        notifyItemInserted(position);
+//        notifyItemInserted(position);
+        notifyDataSetChanged();
     }
 
     public void deleteData(int position) {
         mDatas.remove(position);
 
-        notifyItemRemoved(position);
+//        notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
 
     public void setItemClickListener(OnItemClickListener listener) {
@@ -95,12 +100,13 @@ public class RecyclerViewBaseAdapter extends RecyclerView.Adapter<RecyclerViewBa
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textView;
+        @Bind(R.id.tv_id)
+        TextView textView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            textView = (TextView) itemView.findViewById(R.id.tv_id);
+            ButterKnife.bind(this, itemView);
         }
     }
 

@@ -75,6 +75,7 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.5.0'
     compile 'com.google.android.gms:play-services-location:8.1.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
 
     // ffmpeg
     compile 'com.github.hiteshsondhi88.libffmpeg:FFmpegAndroid:0.2.5'

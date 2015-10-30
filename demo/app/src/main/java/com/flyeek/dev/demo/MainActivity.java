@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.flyeek.dev.demo.component.activity.BaseActivity;
-import com.flyeek.dev.demo.ui.widget.flashlightview.FlashlightDemoActivity;
+import com.flyeek.dev.demo.ui.widget.recyclerview.RecyclerViewActivity;
 import com.flyeek.dev.demo.ui.widget.webview.ChromeCustomTab;
 import com.umeng.update.UmengUpdateAgent;
 
@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity {
         Log.d("flyeek", "density = " + density + ", width = " + width + ", height = " + height);
         Log.d("flyeek", getDeviceInfo(this));
 
-        Intent intent = new Intent(this, FlashlightDemoActivity.class);
+        Intent intent = new Intent(this, RecyclerViewActivity.class);
         startActivity(intent);
     }
 

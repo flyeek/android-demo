@@ -8,9 +8,16 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 tools:context="com.flyeek.dev.demo.ui.widget.recyclerview.RecyclerViewActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview_id"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>
