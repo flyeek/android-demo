@@ -38,3 +38,17 @@ public static final int *;
 -keepattributes Signature
 -keepattributes Exceptions
 # End Retrofit
+
+# Start ButterKnife
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
+# End ButterKnife
