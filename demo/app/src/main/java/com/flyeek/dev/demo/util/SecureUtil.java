@@ -187,7 +187,7 @@ public class SecureUtil {
             try {
                 SecretKeySpec key = new SecretKeySpec(desKeyBytes, ALGORITHM_DES);
                 Cipher cipher = Cipher.getInstance(DES_TRANSFORMATION);
-                cipher.init(Cipher.ENCRYPT_MODE, key);
+                cipher.init(Cipher.ENCRYPT_MODE, key, zeroIv);
                 byte[] encryptedData = cipher.doFinal(msg.getBytes());
 
                 return Base64.encodeToString(encryptedData, Base64.URL_SAFE);
