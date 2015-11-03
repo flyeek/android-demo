@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.finddreams.adbanner.MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/adbanner_container"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp">
+
+        <com.flyeek.dev.demo.ui.widget.cyclebanner.ViewFlow
+            android:id="@+id/viewflow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <com.flyeek.dev.demo.ui.widget.cyclebanner.CircleFlowIndicator
+            android:id="@+id/viewflowindic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</RelativeLayout>

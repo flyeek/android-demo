@@ -9,6 +9,20 @@ android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layouts/home',
+                    'src/main/res/layouts/ui_widget_flashlight',
+                    'src/main/res/layouts/ui_widget_recyclerview',
+                    'src/main/res/layouts/ui_widget_cyclebanner',
+                    'src/main/res/layouts/umeng',
+                    'src/main/res/layouts',
+                    'src/main/res']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     defaultConfig {
         applicationId "com.flyeek.dev.demo"
         minSdkVersion 16
@@ -71,6 +85,7 @@ dependencies {
     compile 'com.android.support:design:22.2.0'
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.facebook.android:facebook-android-sdk:4.1.0'
+    compile 'com.facebook.fresco:fresco:0.7.0'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.5.0'

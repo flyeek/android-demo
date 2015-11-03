@@ -100,9 +100,17 @@
         <activity android:name=".ui.widget.flashlightview.FlashlightDemoActivity" >
         </activity>
 
+        <activity android:name=".ui.widget.cyclebanner.CycleBannerActivity" >
+        </activity>
+
         <service
             android:name=".location.gmslocation.FetchAddressIntentService"
             android:exported="false"/>
+
+
+        <activity android:name=".GoogleAuthActivity" >
+        </activity>
+
 
     </application>
 

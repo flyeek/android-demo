@@ -3,6 +3,7 @@ package com.flyeek.dev.demo.util;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.Environment;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -30,6 +31,32 @@ public class DeviceUtil {
         webview.layout(0, 0, 0, 0);
         WebSettings settings = webview.getSettings();
         return settings.getUserAgentString();
+    }
+
+    public static String getBaseFilePath(Context context) {
+        boolean isSDCanRead = getExternalStorageState();
+        String baseLocation = "";
+        if (isSDCanRead) {
+            baseLocation = getSDCardPath();
+        } else {
+            baseLocation = context.getFilesDir().getAbsolutePath();
+        }
+        return baseLocation;
+    }
+
+    public static boolean getExternalStorageState() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    public static String getSDCardPath() {
+        return Environment.getExternalStorageDirectory().toString();
     }
 
 }

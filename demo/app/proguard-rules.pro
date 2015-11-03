@@ -16,21 +16,12 @@
 #   public *;
 #}
 
-# required by UMeng Analytics
+# Start UMeng Analytics
 -keepclassmembers class * {
    public <init>(org.json.JSONObject);
 }
+# End UMeng Analytics
 
-# required by UMeng Analytics
--keep public class com.flyeek.dev.demo.R$*{
-public static final int *;
-}
-
-# required by UMeng Analytics
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
 
 # Start Retrofit
 -dontwarn retrofit.**
@@ -38,6 +29,7 @@ public static final int *;
 -keepattributes Signature
 -keepattributes Exceptions
 # End Retrofit
+
 
 # Start ButterKnife
 -keep class butterknife.** { *; }
@@ -52,3 +44,11 @@ public static final int *;
     @butterknife.* <methods>;
 }
 # End ButterKnife
+
+
+# Start otto
+-keepclassmembers class ** {
+    @com.squareup.otto.Subscribe public *;
+    @com.squareup.otto.Produce public *;
+}
+# End otto
