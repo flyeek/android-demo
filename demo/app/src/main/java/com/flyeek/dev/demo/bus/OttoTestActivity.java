@@ -19,10 +19,10 @@ public class OttoTestActivity extends Activity {
     @Bind(R.id.btn_otto_event_no_param)
     public Button mBtnNoParam;
 
-    @Bind(R.id.btn_otto_event_no_param)
+    @Bind(R.id.btn_otto_event_has_param)
     public Button mBtnHasParam;
 
-    @Bind(R.id.btn_otto_event_no_param)
+    @Bind(R.id.txt_otto_event_info)
     public TextView mTxtEventInfo;
 
     @Override
