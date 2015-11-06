@@ -9,8 +9,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.flyeek.dev.demo.bus.OttoTestActivity;
 import com.flyeek.dev.demo.component.activity.BaseActivity;
+import com.flyeek.dev.demo.qrcode.QRCodeActivity;
 import com.flyeek.dev.demo.ui.widget.webview.ChromeCustomTab;
 import com.umeng.update.UmengUpdateAgent;
 
@@ -28,14 +28,14 @@ public class MainActivity extends BaseActivity {
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        int width = metrics.widthPixels;               // 屏幕宽度（像素
-        int height = metrics.heightPixels;            // 屏幕高度（像素）
+        int width = metrics.widthPixels;
+        int height = metrics.heightPixels;
         float density = metrics.densityDpi;
 
         Log.d("flyeek", "density = " + density + ", width = " + width + ", height = " + height);
         Log.d("flyeek", getDeviceInfo(this));
 
-        Intent intent = new Intent(this, OttoTestActivity.class);
+        Intent intent = new Intent(this, QRCodeActivity.class);
         startActivity(intent);
     }
 
