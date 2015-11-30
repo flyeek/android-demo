@@ -108,8 +108,6 @@
 
         <activity android:name=".GoogleAuthActivity">
         </activity>
-        <activity android:name=".bus.OttoTestActivity">
-        </activity>
         <activity android:name=".qrcode.QRCodeActivity">
         </activity>
     </application>

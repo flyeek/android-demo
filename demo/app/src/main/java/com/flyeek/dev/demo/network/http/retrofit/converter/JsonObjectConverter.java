@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.flyeek.dev.demo.network.http.retrofit.converter;
 
 import com.google.gson.Gson;
@@ -35,87 +36,87 @@ import retrofit.mime.TypedInput;
 import retrofit.mime.TypedOutput;
 
 public class JsonObjectConverter implements Converter {
-	
-	private String encoding;
 
-	public JsonObjectConverter() {
-		this("UTF-8");
-	}
+    private String encoding;
 
-	public JsonObjectConverter(String encoding) {
-		this.encoding = encoding;
-	}
+    public JsonObjectConverter() {
+        this("UTF-8");
+    }
 
-	@Override
-	public Object fromBody(TypedInput body, Type type) throws ConversionException {
-		String charset = "UTF-8";
-		if (body.mimeType() != null) {
-			charset = MimeUtil.parseCharset(body.mimeType(), charset);
-		}
-		try {
-			String json = inputSteamToString(body.in(), charset);
-			return new JSONObject(json);
-		} catch (IOException | JsonParseException | JSONException e) {
-			throw new ConversionException(e);
-		} finally {
-			try {
-				body.in().close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    public JsonObjectConverter(String encoding) {
+        this.encoding = encoding;
+    }
 
-	@Override
-	public TypedOutput toBody(Object object) {
-		try {
-			return new JsonTypedOutput(new Gson().toJson(object).getBytes(encoding), encoding);
-		} catch (UnsupportedEncodingException e) {
-			throw new AssertionError(e);
-		}
-	}
+    @Override
+    public Object fromBody(TypedInput body, Type type) throws ConversionException {
+        String charset = "UTF-8";
+        if (body.mimeType() != null) {
+            charset = MimeUtil.parseCharset(body.mimeType(), charset);
+        }
+        try {
+            String json = inputSteamToString(body.in(), charset);
+            return new JSONObject(json);
+        } catch (IOException | JsonParseException | JSONException e) {
+            throw new ConversionException(e);
+        } finally {
+            try {
+                body.in().close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	public static String inputSteamToString(InputStream is, String charset) throws IOException {
-		final int BUFFER_SIZE = 1024;
+    @Override
+    public TypedOutput toBody(Object object) {
+        try {
+            return new JsonTypedOutput(new Gson().toJson(object).getBytes(encoding), encoding);
+        } catch (UnsupportedEncodingException e) {
+            throw new AssertionError(e);
+        }
+    }
 
-		ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-		byte[] data = new byte[BUFFER_SIZE];
-		int count = -1;
+    public static String inputSteamToString(InputStream is, String charset) throws IOException {
+        final int BUFFER_SIZE = 1024;
 
-		while ((count = is.read(data, 0, BUFFER_SIZE)) != -1)
-			outStream.write(data, 0, count);
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        byte[] data = new byte[BUFFER_SIZE];
+        int count = -1;
 
-		data = null;
-		return new String(outStream.toByteArray(), charset);
-	}
+        while ((count = is.read(data, 0, BUFFER_SIZE)) != -1)
+            outStream.write(data, 0, count);
 
-	private static class JsonTypedOutput implements TypedOutput {
-		private final byte[] jsonBytes;
-		private final String mimeType;
+        data = null;
+        return new String(outStream.toByteArray(), charset);
+    }
 
-		JsonTypedOutput(byte[] jsonBytes, String encode) {
-			this.jsonBytes = jsonBytes;
-			this.mimeType = "application/json; charset=" + encode;
-		}
+    private static class JsonTypedOutput implements TypedOutput {
+        private final byte[] jsonBytes;
+        private final String mimeType;
 
-		@Override
-		public String fileName() {
-			return null;
-		}
+        JsonTypedOutput(byte[] jsonBytes, String encode) {
+            this.jsonBytes = jsonBytes;
+            this.mimeType = "application/json; charset=" + encode;
+        }
 
-		@Override
-		public String mimeType() {
-			return mimeType;
-		}
+        @Override
+        public String fileName() {
+            return null;
+        }
 
-		@Override
-		public long length() {
-			return jsonBytes.length;
-		}
+        @Override
+        public String mimeType() {
+            return mimeType;
+        }
 
-		@Override
-		public void writeTo(OutputStream out) throws IOException {
-			out.write(jsonBytes);
-		}
-	}
+        @Override
+        public long length() {
+            return jsonBytes.length;
+        }
+
+        @Override
+        public void writeTo(OutputStream out) throws IOException {
+            out.write(jsonBytes);
+        }
+    }
 }

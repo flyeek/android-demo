@@ -20,6 +20,10 @@
 -keepclassmembers class * {
    public <init>(org.json.JSONObject);
 }
+-dontwarn com.umeng.**
+
+-keep class org.apache.** { *; }
+-dontwarn org.apache.**
 # End UMeng Analytics
 
 
